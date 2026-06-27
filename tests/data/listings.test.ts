@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { LISTINGS, plantedListingFor } from '@/data/listings';
+import { LISTINGS, plantedListingFor, listingById } from '@/data/listings';
 import { ARCHETYPE_IDS } from '@/lib/types';
 
 describe('listings', () => {
@@ -14,5 +14,14 @@ describe('listings', () => {
   });
   it('marks the fake-payment listing as player-as-seller', () => {
     expect(plantedListingFor('fake_payment_proof').playerIsSeller).toBe(true);
+  });
+  it('listingById returns the correct listing and undefined for unknown id', () => {
+    expect(listingById('p-off')?.id).toBe('p-off');
+    expect(listingById('does-not-exist')).toBeUndefined();
+  });
+  it('all non-planted listings have archetypeId null', () => {
+    LISTINGS.filter((l) => !l.isPlanted).forEach((l) => {
+      expect(l.archetypeId).toBeNull();
+    });
   });
 });
