@@ -54,6 +54,30 @@ The five planted scams are:
 - **Event-level report** with scams found, defended cases, failed cases, red flags spotted, total score, and scam-resistance level.
 - **Trust & Safety dashboard** that turns individual playthroughs into aggregate fraud intelligence.
 
+## Screenshots
+
+Below are a few product screenshots showing the main user flow, with extra emphasis on the player report and the Trust & Safety dashboard.
+
+### 1. Intro / onboarding
+
+<img src="docs/screenshots/01-intro.svg" alt="Phish n Cheats intro screen" width="100%" />
+
+### 2. Marketplace feed
+
+<img src="docs/screenshots/02-feed.svg" alt="Marketplace feed with planted scam listings" width="100%" />
+
+### 3. Seller chat
+
+<img src="docs/screenshots/03-chat.svg" alt="In-app chat with a suspicious marketplace seller" width="100%" />
+
+### 4. Player report
+
+<img src="docs/screenshots/04-report.svg" alt="Player report showing scam-resistance score and outcomes" width="100%" />
+
+### 5. Trust & Safety dashboard
+
+<img src="docs/screenshots/05-dashboard.svg" alt="Trust and Safety dashboard summarising scam intelligence" width="100%" />
+
 ## Tech stack
 
 ### Frontend
