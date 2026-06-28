@@ -1,88 +1,105 @@
-# boingyoyo — shared Claude Code skills
+# phish-n-cheats — Claude Code skills bundle
 
-A bundle of [Claude Code **skills**](https://code.claude.com/docs/en/skills) shared with the
-team through this repo. **No install step:** clone the repo, start Claude Code inside it, and all
-the skills below are available immediately.
+A project-scoped bundle of [Claude Code skills](https://code.claude.com/docs/en/skills) that can be shared by cloning this repository. There is no package manager, build step, or install script required: open Claude Code from inside the repo and the skills under `.claude/skills/` are discovered automatically.
 
 ## Quick start
 
 ```bash
-git clone https://github.com/JamesTzh/boingyoyo.git
-cd boingyoyo
-claude        # skills under .claude/skills/ are auto-discovered
+git clone https://github.com/ashleytoh/phish-n-cheats.git
+cd phish-n-cheats
+claude
 ```
 
-That's it — there's nothing to download or enable. Claude Code automatically discovers skills in
-`.claude/skills/` from your working directory up to the repo root, so starting Claude anywhere
-inside the repo picks them up. You can confirm they loaded by asking Claude what skills it has, or
-by invoking one directly (e.g. `/frontend-design`).
+Once Claude Code is running inside the repository, the bundled project skills are available for that session. To verify that they loaded, ask Claude what skills are available or invoke one directly, for example:
 
-> **Scope:** these are *project* skills — they're active only while you're working **inside this
-> repo**. They don't follow you into your other projects. (If you want a skill everywhere, install
-> it as a personal skill in `~/.claude/skills/` or as a plugin instead.)
+```text
+/frontend-design
+```
 
-## Skills in this bundle
+> **Scope:** these are project skills. They are active while you are working inside this repository, but they do not follow you into unrelated projects. For global usage, install a skill as a personal skill in `~/.claude/skills/` or use the upstream plugin where applicable.
+
+## What is included
+
+| Category | Skills | Use them for |
+|---|---|---|
+| UI and web design | `frontend-design`, `web-artifacts-builder` | Designing distinctive frontends and building rich claude.ai HTML artifacts with React, Tailwind, and shadcn/ui. |
+| Integrations | `mcp-builder` | Building MCP servers that expose external APIs as clean, well-designed tools. |
+| Testing | `webapp-testing` | Using Playwright to interact with local web apps, verify UI behavior, capture screenshots, and inspect browser logs. |
+| Presentations | `frontend-slides` | Creating animation-rich, zero-dependency HTML presentations or converting slide concepts into polished web slides. |
+| Engineering workflow | `brainstorming`, `writing-plans`, `executing-plans`, `subagent-driven-development`, `dispatching-parallel-agents`, `test-driven-development`, `systematic-debugging`, `verification-before-completion`, `requesting-code-review`, `receiving-code-review`, `using-git-worktrees`, `finishing-a-development-branch`, `writing-skills`, `using-superpowers` | Structuring engineering work from ideation through planning, execution, verification, review, and branch cleanup. |
+
+## Skill sources
 
 ### From [anthropics/skills](https://github.com/anthropics/skills) — Apache-2.0
 
-| Skill | What it's for |
+| Skill | What it is for |
 |---|---|
-| `frontend-design` | Distinctive, intentional visual design when building or reshaping UI — aesthetic direction, typography, avoiding templated defaults. |
-| `mcp-builder` | Building high-quality MCP servers (Python/FastMCP or Node/TypeScript) to integrate external APIs as well-designed tools. |
+| `frontend-design` | Distinctive, intentional visual design when building or reshaping UI, including aesthetic direction, typography, and avoiding templated defaults. |
+| `mcp-builder` | Building high-quality MCP servers in Python/FastMCP or Node/TypeScript. |
 | `web-artifacts-builder` | Elaborate multi-component claude.ai HTML artifacts using React, Tailwind, and shadcn/ui. |
-| `webapp-testing` | Interacting with and testing local web apps via Playwright — verify UI, capture screenshots, read browser logs. |
+| `webapp-testing` | Interacting with and testing local web apps via Playwright. |
 
 ### From [zarazhangrui/frontend-slides](https://github.com/zarazhangrui/frontend-slides) — MIT
 
-| Skill | What it's for |
+| Skill | What it is for |
 |---|---|
 | `frontend-slides` | Animation-rich, zero-dependency HTML presentations from scratch or converted from PPT/PPTX. |
 
 ### From [obra/superpowers](https://github.com/obra/superpowers) — MIT
 
-A library of engineering-workflow skills by Jesse Vincent. Vendored here as plain skills (see the
-note below).
+A library of engineering-workflow skills by Jesse Vincent, vendored here as plain Claude Code skills.
 
-| Skill | What it's for |
+| Skill | What it is for |
 |---|---|
-| `brainstorming` | Explore intent, requirements, and design before any creative/build work. |
+| `brainstorming` | Explore intent, requirements, and design before creative or build work. |
 | `writing-plans` | Turn a spec into a written, multi-step implementation plan. |
-| `executing-plans` | Execute a written plan in a separate session with review checkpoints. |
+| `executing-plans` | Execute a written plan with review checkpoints. |
 | `subagent-driven-development` | Execute plan tasks via independent subagents in the current session. |
-| `dispatching-parallel-agents` | Coordinate 2+ independent tasks with no shared state. |
-| `test-driven-development` | Write tests before implementation for any feature or bugfix. |
-| `systematic-debugging` | Structured approach to any bug, test failure, or unexpected behavior. |
-| `verification-before-completion` | Require evidence (run the commands) before claiming work is done. |
-| `requesting-code-review` | Verify work meets requirements before merging. |
-| `receiving-code-review` | Handle review feedback with technical rigor, not blind agreement. |
+| `dispatching-parallel-agents` | Coordinate two or more independent tasks with no shared state. |
+| `test-driven-development` | Write tests before implementation for a feature or bugfix. |
+| `systematic-debugging` | Work through bugs, test failures, and unexpected behavior methodically. |
+| `verification-before-completion` | Require evidence, such as command output, before claiming work is done. |
+| `requesting-code-review` | Check work against requirements before merging. |
+| `receiving-code-review` | Handle review feedback with technical rigor rather than blind agreement. |
 | `using-git-worktrees` | Isolate feature work in a dedicated workspace. |
-| `finishing-a-development-branch` | Decide how to integrate completed work (merge / PR / cleanup). |
+| `finishing-a-development-branch` | Decide how to integrate completed work and clean up branches. |
 | `writing-skills` | Create, edit, and verify Claude Code skills. |
-| `using-superpowers` | Meta-skill describing how the superpowers skills fit together. |
+| `using-superpowers` | Understand how the superpowers skills fit together. |
 
-> **Note on superpowers:** upstream this is a *plugin* whose `SessionStart` hook makes Claude
-> proactively reach for these skills. Vendored here as plain skills, they're fully usable — Claude
-> can match them by description, and you can invoke any by name (e.g. `/systematic-debugging`) —
-> but they are **not auto-triggered** at session start. If you want the full auto-dispatch
-> behavior, install the upstream plugin instead:
-> `/plugin marketplace add obra/superpowers` then `/plugin install superpowers`.
+> **Note on superpowers:** upstream `obra/superpowers` is a plugin whose `SessionStart` hook can proactively dispatch skills. In this repository, the skills are vendored as plain project skills. They are still usable by name, but they do not auto-trigger at session start. For the full upstream plugin behavior, install it directly:
+>
+> ```text
+> /plugin marketplace add obra/superpowers
+> /plugin install superpowers
+> ```
 
-## Adding a skill to the bundle
+## Repository layout
 
-1. Create `.claude/skills/<skill-name>/SKILL.md` with YAML frontmatter — at minimum `name`
-   (matching the folder) and a `description` that says *when* to use it.
-2. Put any supporting files (`scripts/`, `references/`, `assets/`) inside that same folder; refer
-   to them with paths relative to the skill folder.
-3. Commit and push. Teammates get it on their next `git pull` — no install.
+```text
+.claude/
+  skills/
+    <skill-name>/
+      SKILL.md
+      LICENSE or LICENSE.txt
+      supporting files, if any
+```
 
-See the [skill authoring docs](https://code.claude.com/docs/en/skills) for the full format.
+Each skill lives in its own folder. `SKILL.md` contains the skill metadata and instructions, while any supporting scripts, references, or assets should stay inside the same skill folder.
 
-## Licenses & attribution
+## Adding or updating a skill
 
-These skills are redistributed from their upstream repos under their original licenses; each skill
-folder retains its `LICENSE`/`LICENSE.txt`:
+1. Create or update `.claude/skills/<skill-name>/SKILL.md`.
+2. Make sure the YAML frontmatter includes at least `name` and a clear `description` that explains when Claude should use the skill.
+3. Keep supporting files such as `scripts/`, `references/`, and `assets/` inside that skill folder.
+4. Preserve the upstream license file and attribution when vendoring a third-party skill.
+5. Commit and push the change. Teammates can get the updated bundle with `git pull`.
 
-- `frontend-design`, `mcp-builder`, `web-artifacts-builder`, `webapp-testing` — © Anthropic,
-  Apache-2.0 — https://github.com/anthropics/skills
+See the [Claude Code skill authoring docs](https://code.claude.com/docs/en/skills) for the full skill format.
+
+## Licenses and attribution
+
+These skills are redistributed from their upstream repositories under their original licenses. Each skill folder keeps its corresponding license file.
+
+- `frontend-design`, `mcp-builder`, `web-artifacts-builder`, `webapp-testing` — © Anthropic, Apache-2.0 — https://github.com/anthropics/skills
 - `frontend-slides` — © 2025 Zara Zhang, MIT — https://github.com/zarazhangrui/frontend-slides
 - All `superpowers` skills — © 2025 Jesse Vincent, MIT — https://github.com/obra/superpowers
