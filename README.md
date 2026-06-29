@@ -56,27 +56,31 @@ The five planted scams are:
 
 ## Screenshots
 
-Below are a few product screenshots showing the main user flow, with extra emphasis on the player report and the Trust & Safety dashboard.
+These screenshots show the main playable flow, from marketplace browsing through the scam chat, feedback screens, player report, and Trust & Safety dashboard.
 
-### 1. Intro / onboarding
+### 1. Marketplace feed
 
-<img src="docs/screenshots/01-intro.svg" alt="Phish n Cheats intro screen" width="100%" />
+<img src="docs/pitch/assets/product/feed.png" alt="Marketplace feed with planted scam listings" width="100%" />
 
-### 2. Marketplace feed
+### 2. Listing detail
 
-<img src="docs/screenshots/02-feed.svg" alt="Marketplace feed with planted scam listings" width="100%" />
+<img src="docs/pitch/assets/product/listing.png" alt="Suspicious marketplace listing detail screen" width="100%" />
 
 ### 3. Seller chat
 
-<img src="docs/screenshots/03-chat.svg" alt="In-app chat with a suspicious marketplace seller" width="100%" />
+<img src="docs/pitch/assets/product/chat.png" alt="In-app chat with a suspicious marketplace seller" width="100%" />
 
-### 4. Player report
+### 4. Scam feedback
 
-<img src="docs/screenshots/04-report.svg" alt="Player report showing scam-resistance score and outcomes" width="100%" />
+<img src="docs/pitch/assets/product/freeze.png" alt="Scam intervention feedback modal" width="100%" />
 
-### 5. Trust & Safety dashboard
+### 5. Player report
 
-<img src="docs/screenshots/05-dashboard.svg" alt="Trust and Safety dashboard summarising scam intelligence" width="100%" />
+<img src="docs/pitch/assets/product/report.png" alt="Player report showing scam-resistance score and outcomes" width="100%" />
+
+### 6. Trust & Safety dashboard
+
+<img src="docs/pitch/assets/product/dashboard.png" alt="Trust and Safety dashboard summarising scam intelligence" width="100%" />
 
 ## Tech stack
 
